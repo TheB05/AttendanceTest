@@ -27,3 +27,4 @@ C:\Web\Primer parcial\TestV2\obj\Debug\net8.0\refint\TestV2.dll
 C:\Web\Primer parcial\TestV2\obj\Debug\net8.0\TestV2.pdb
 C:\Web\Primer parcial\TestV2\obj\Debug\net8.0\TestV2.genruntimeconfig.cache
 C:\Web\Primer parcial\TestV2\obj\Debug\net8.0\ref\TestV2.dll
+C:\Web\Primer parcial\TestV2\obj\Debug\net8.0\TestV2.sourcelink.json
