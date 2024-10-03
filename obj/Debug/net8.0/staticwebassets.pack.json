@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Web\\Primer parcial\\TestV2\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TestV2.bundle.scp.css",
+      "PackagePath": "staticwebassets\\TestV2.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Web\\Primer parcial\\TestV2\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Web\\Primer parcial\\TestV2\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Web\\Primer parcial\\TestV2\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Web\\Primer parcial\\TestV2\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TestV2.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.TestV2.props",
+      "PackagePath": "build\\TestV2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.TestV2.props",
+      "PackagePath": "buildMultiTargeting\\TestV2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.TestV2.props",
+      "PackagePath": "buildTransitive\\TestV2.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
