@@ -1,6 +1,7 @@
 @page "/home/registrar/estudiantes"
 @rendermode InteractiveServer
 @inject NavigationManager NavMan
+@using System.Text.Json
 @inject IJSRuntime Jsx
 
 <PageTitle>Añadiendo...</PageTitle>
@@ -66,10 +67,32 @@
 
     List<Student> estudiantes = new List<Student>();
 
-    private void RegistrarEstudiante(){
+    //Guardar en localStorage.
+    private async Task GuardarEnLocalStorage()
+    {
+        await Jsx.InvokeVoidAsync("localStorage.setItem", "estudiantes", JsonSerializer.Serialize(estudiantes));
+    }
 
+    private async Task RegistrarEstudiante()
+    {
         estudiantes.Add(registrar);
-
+        await GuardarEnLocalStorage();
         NavMan.NavigateTo("home");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Accede al localStorage.
+            var jsonStudents = await Jsx.InvokeAsync<string>("localStorage.getItem", "estudiantes");
+
+            if (!string.IsNullOrEmpty(jsonStudents))
+            {
+                estudiantes = JsonSerializer.Deserialize<List<Student>>(jsonStudents);
+                    
+                StateHasChanged();
+            }
+        }
     }
 }

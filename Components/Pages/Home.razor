@@ -1,6 +1,8 @@
 ﻿@page "/home"
 @rendermode InteractiveServer
 @inject NavigationManager NavMan
+@inject IJSRuntime Jsx
+@using System.Text.Json
 
 <PageTitle>Inicio</PageTitle>
 
@@ -21,6 +23,20 @@
         <th>Motivo</th>
         </tr>
     </thead>
+    <tbody>
+        @foreach (var registrar in estudiantes){
+
+            <tr>
+                <td>@registrar.Name</td>
+                <td>@registrar.Lastname</td>
+                <td>@registrar.Grade</td>
+                <td>@registrar.ClassID</td>
+                <td>@registrar.Motive</td>
+                <td>@registrar.Date</td>
+
+            </tr>
+        }
+    </tbody>
 </table>
 
 <div class="text-end">
@@ -33,12 +49,25 @@
 
 @code{
 
-    //List<Students> 
+    List<Student> estudiantes = new List<Student>();
 
     private void Nuevo_estudiante(){
         
         NavMan.NavigateTo("home/registrar/estudiantes");
     }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Accede al localStorage.
+            var jsonStudents = await Jsx.InvokeAsync<string>("localStorage.getItem", "estudiantes");
 
+            if (!string.IsNullOrEmpty(jsonStudents))
+            {
+                estudiantes = JsonSerializer.Deserialize<List<Student>>(jsonStudents);
+                StateHasChanged();
+            }
+        }
+    }
 }
