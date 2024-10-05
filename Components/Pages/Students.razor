@@ -1,1 +1,75 @@
-@page "/Registrar/estudiantes"
+@page "/home/registrar/estudiantes"
+@rendermode InteractiveServer
+@inject NavigationManager NavMan
+@inject IJSRuntime Jsx
+
+<PageTitle>Añadiendo...</PageTitle>
+
+<center>
+    <h2>Ingerese los datos del estudiante.</h2>
+</center>
+
+<EditForm Model="@registrar" OnValidSubmit="@RegistrarEstudiante">
+    <DataAnnotationsValidator />
+
+    <div class = "mb-3">
+        <label for = "Name" class = "form-label">Nombre</label>
+        <InputText id = "Name" class = "form-control" @bind-Value = "@registrar.Name" />
+        <ValidationMessage For="@(() => registrar.Name)" />
+    </div>
+
+    <div class = "mb-3">
+        <label for = "Lastname" class = "form-label">Apellido</label>
+        <InputText id = "Lastname" class = "form-control" @bind-Value = "@registrar.Lastname" />
+        <ValidationMessage For="@(() => registrar.Lastname)" />
+    </div>
+
+    <div class = "mb-3">
+        <label for = "Motive" class = "form-label">Motivo</label>
+        <InputTextArea id = "Motive" class = "form-control" @bind-Value = "@registrar.Motive" />
+        <ValidationMessage For="@(() => registrar.Motive)" />
+    </div>
+
+    <div class= "row">
+        <div class= "col">
+            <div class = "mb-3">
+                <label for = "Grade" class = "form-label">Curso</label>
+                <InputText id = "Grade" class = "form-control" @bind-Value = "@registrar.Grade" />
+                <ValidationMessage For="@(() => registrar.Grade)" />
+            </div>
+        </div>
+        <div class= "col">
+                <div class = "mb-3">
+                    <label for = "ClassID" class = "form-label">Matrícula</label>
+                    <InputText id = "ClassID" class = "form-control" @bind-Value = "@registrar.ClassID" />
+                    <ValidationMessage For="@(() => registrar.ClassID)" />
+                </div>
+         </div>
+        <div class= "col">
+                <div class = "mb-3">
+                    <label for = "Date" class = "form-label">Fecha</label>
+                    <InputDate id = "Date" class = "form-control" @bind-Value = "@registrar.Date" />
+                    <ValidationMessage For="@(() => registrar.Date)" />
+                </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-success">Registrar estudiante</button>
+    </div>
+
+</EditForm>
+
+@code{
+//Para guardar los datos del estudiante.
+    private Student registrar = new Student();
+
+    List<Student> estudiantes = new List<Student>();
+
+    private void RegistrarEstudiante(){
+
+        estudiantes.Add(registrar);
+
+        NavMan.NavigateTo("home");
+    }
+}

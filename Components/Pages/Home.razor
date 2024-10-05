@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/home"
 @rendermode InteractiveServer
 @inject NavigationManager NavMan
 
@@ -23,16 +23,22 @@
     </thead>
 </table>
 
-<div>
+<div class="text-end">
+    <center>
     <button class="btn btn-primary" @onclick = "Nuevo_estudiante">Añadir estudiante</button>
+    </center>
 </div>
+
+</center>
 
 @code{
 
+    //List<Students> 
+
     private void Nuevo_estudiante(){
         
-        NavMan.NavigateTo("Registrar/estudiantes");
+        NavMan.NavigateTo("home/registrar/estudiantes");
     }
-}
 
-</center>
+
+}
